@@ -1,0 +1,21 @@
+<ul [class.expanded]="menuOpen === true">
+  <li *ngFor="let menuItem of menu">
+    <div *ngIf="menuItem.outlet === ''; then thenBlock; else elseBlock " ></div>
+    
+     <!--Creating a route using routes in angular-->
+
+        <!--the activetab function checks whether home is selected and makes
+        it the active link-->
+
+    <ng-template #thenBlock>
+      <a routerLink="{{menuItem.link}}" (click)="toggleMenu($event)"
+      routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{menuItem.title}}</a>
+    </ng-template>
+    
+    <ng-template #elseBlock>
+        <a [routerLink] = "[{outlets: {popup: [menuItem.link] }}]" (click)="toggleMenu($event)"
+        routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{menuItem.title}}</a>
+      </ng-template>
+
+  </li>
+</ul>

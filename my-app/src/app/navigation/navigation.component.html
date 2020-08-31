@@ -1,0 +1,47 @@
+<!--Moving the nav menu to a db i.e from static to dynamic-->
+<div id="header" class="nav-collapse nav-solid">
+    <div class="row clearfix">
+        <div class="col-1">
+
+            <!--Logo-->
+            <div id="logo">
+
+                <!--Logo that is shown on the banner-->
+             
+               <h1 id="banner-logo" alt="Landing Page">ROBIKAN</h1>
+                <!--End of Banner Logo-->
+
+                <!--The Logo that is shown on the sticky Navigation Bar-->
+                <h1 id="tt" alt="Landing Page"> <a routerLink='/home'> ROBIKAN</a></h1>
+                <!--End of Navigation Logo-->
+
+            </div>
+            <!--End of Logo-->                
+
+            <aside>   
+                <app-user-profile-icon [profileImage]="profileImage"></app-user-profile-icon>
+                <app-social></app-social>
+                
+            </aside>
+
+
+                  <!--Main Navigation-->
+            <nav id="nav-main">
+                <app-navmenu [menu]="menu" [menuOpen]="true"></app-navmenu>
+                
+            </nav>
+    <!--End of Main Navigation-->
+
+            <div id="nav-trigger"><span [class.open]="menuOpen == true" (click)="toggleMenu(!menuOpen)"></span></div>
+            <nav id="nav-mobile">
+               <!--the togglemenu function allows us when we click the navbar, 
+            it passes on an event that allows the particular page we have clicked to be displayed.-->
+                <app-navmenu [menu]="menu" *ngIf="menuOpen === true" 
+                (menuStatus)="toggleMenu($event)"
+                [menuOpen]="menuOpen"></app-navmenu>
+
+            </nav>
+
+        </div>
+    </div>
+</div><!--End of Header-->
