@@ -8,7 +8,7 @@ import { InMemoryDbService, RequestInfo,  RequestInfoUtilities, ParsedRequestUrl
 export class InMemoryDataService implements InMemoryDbService {
 
   constructor() { }
-//creates an in memory bd where we are storing various values i.e users,posts
+//creates an in memory bd where for storing various values i.e users,posts
   createDb() {
 
     const users = [
